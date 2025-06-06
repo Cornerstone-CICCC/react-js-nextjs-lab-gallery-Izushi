@@ -5,7 +5,7 @@ interface PhotoDetailProps {
   id: string
 }
 
-export async function fetchPhoto(id: string): Promise<Photo> {
+const fetchPhoto = async (id: string): Promise<Photo> => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/photos/${id}`, {
     next: { revalidate: 3600 * 24 }
   })
@@ -21,7 +21,7 @@ export async function fetchPhoto(id: string): Promise<Photo> {
   }
 }
 
-export default async function PhotoDetail({ id }: PhotoDetailProps) {
+const PhotoDetail = async ({ id }: PhotoDetailProps) => {
   const photo = await fetchPhoto(id)
 
   return (
@@ -44,3 +44,5 @@ export default async function PhotoDetail({ id }: PhotoDetailProps) {
     </div>
   )
 }
+
+export default PhotoDetail

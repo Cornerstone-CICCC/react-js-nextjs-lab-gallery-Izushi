@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const fetchPhotos = async (): Promise<Photo[]> => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/photos', {
+  const res = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=30', {
     next: { revalidate: 3600 * 24 * 7 }
   })
   if (!res.ok) {

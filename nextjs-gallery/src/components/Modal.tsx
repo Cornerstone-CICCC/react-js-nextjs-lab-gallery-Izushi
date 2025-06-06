@@ -6,7 +6,7 @@ interface ModalProps {
   children: React.ReactNode
 }
 
-export default function Modal({ children }: ModalProps) {
+const Modal = ({ children }: ModalProps) => {
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
 
@@ -53,3 +53,5 @@ export default function Modal({ children }: ModalProps) {
     </div>
   )
 }
+
+export default Modal
